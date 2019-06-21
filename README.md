@@ -7,6 +7,6 @@ Problems That I Solved:
 3. Except holidays for starting a project
 4. Building custom exceptions
 5. Validation of input data.
-6 Detecting range overlap
-7 Reading and Writing files in python
+6. Detecting range overlap
+7. Reading and Writing files in python
 
