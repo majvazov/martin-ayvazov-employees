@@ -10,4 +10,4 @@ Problems That I Solved:
 6. Detecting range overlap
 7. Reading and Writing files in python
 
-![alt text]https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/asd.png(http://url/to/img.png)
+![Image of Yaktocat](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/asd.png)
