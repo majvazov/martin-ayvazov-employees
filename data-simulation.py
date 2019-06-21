@@ -11,6 +11,7 @@ employees = 200
 projects = 9
 def random_date(start, end):
     """
+    generates random date using intervals
     """
     delta_days = (end - start).days
     while True:
@@ -21,6 +22,7 @@ def random_date(start, end):
 
 def holiday_check(random_date):
     """
+    The project cannot be started during holidy
     """
     holidays = {1:1, 3:3, 1:5, 6:9, 22:9,24:12, 25:12, 26:12}
     if(random_date.weekday() == 5 and random_date.weekday() == 6):
@@ -33,6 +35,7 @@ def holiday_check(random_date):
 
 def simulate_data():
     """
+    Algorithm for creating and simulariong data for input
     """
     d1 = datetime.date(2012,1,1)
     d2 = datetime.date.today()

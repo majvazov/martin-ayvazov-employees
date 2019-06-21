@@ -1,0 +1,195 @@
+'''
+
+'''
+# pylint: disable=wildcard-import
+import datetime
+from collections import namedtuple
+from CustomExceptions import*
+
+class DataHandler:
+    '''
+    Handle one line from text document.
+    '''
+    def __init__(self, employee_id, project_id, start_date, end_date):
+        self.employee_id = employee_id
+        self.project_id = project_id
+        self.start_date = start_date
+        self.end_date = end_date
+        
+    def __str__(self):
+        return "EMP_ID {}\nPROJ_ID {}\nDATE_START {}\nDATE_END {}\n".format(self.employee_id,
+        self.project_id,
+        self.start_date,
+        self.end_date)
+
+#transfer to other file
+
+def validate_date(date_start, date_end):
+    '''
+    asd
+    '''
+    if date_end == 'NULL':
+        date_end = datetime.date.today()
+    
+    try:
+        date_start = datetime.datetime.strptime(
+            date_start, '%Y-%m-%d').date()
+        if isinstance(date_end, str):
+            date_end = datetime.datetime.strptime(
+                date_end, '%Y-%m-%d').date()
+
+        if date_start > date_end:
+            raise WrongDateFormatError()
+        return (date_start, date_end)
+
+    except:
+        raise WrongDateFormatError()
+
+def validate_ids(employee_id, project_id):
+    '''
+    Gets project id and employee id as string parameters.
+    Casts each id to integer and validates them. If they are valid
+    returns tuple of two ids (employee_id, project_id)
+    '''
+    employee_id = int(employee_id)
+    project_id = int(project_id)
+    if not isinstance(employee_id, int) or not isinstance(project_id, int):
+        raise WrongIdFormat()
+    elif  project_id < 0 or employee_id < 0:
+        raise SmallerIdError()
+    return (employee_id, project_id)
+
+def date_range_overlap(first_start,
+                       first_end,
+                       second_start,
+                       second_end):
+    '''
+    ASDA
+    '''
+    time_spend = namedtuple('Range', ['start', 'end'])
+    first_range = time_spend(first_start, first_end)
+    second_range = time_spend(second_start, second_end)
+    latest_start = (max(first_range.start, second_range.start))
+    earliest_end = (min(first_range.end, second_range.end))
+    delta = (earliest_end - latest_start).days + 1
+    return max(0, delta)
+
+def read_from_file():
+    '''
+    ASDASD
+    '''
+    try:
+        
+        orderd_by_projects = {}
+        with open('test.txt') as text_file:
+            lines = text_file.readlines()
+
+            for line in lines:
+                employee_data = line.split()
+
+                start_date, end_date = validate_date(
+                    employee_data[2],
+                    employee_data[3])
+               
+                employee_id, project_id = validate_ids(
+                    employee_data[0], employee_data[1])
+                
+                
+                
+                if project_id in orderd_by_projects:
+                    orderd_by_projects[project_id].append(
+                        DataHandler(employee_id,
+                                 project_id,
+                                 start_date,
+                                 end_date))
+                else:
+                    orderd_by_projects[project_id] = [
+                        DataHandler(employee_id,
+                                 project_id,
+                                 start_date,
+                                 end_date)]
+
+            return orderd_by_projects
+
+    except EOFError:
+        print("End of file")
+    except IndexError:
+        print("Wrong data input")
+    except WrongDateFormatError:
+        print("Wrong formated date in text file")
+    except WrongDateIntervalError:
+        print("start_date of project is larger than end_date")
+    except WrongIdFormat:
+        print("emp_id or proj_id are not instance of integer")
+    except SmallerIdError:
+        print("emp_id or proj_id are smaller")
+    except LargerIdError:
+        print("emp_id or proj_id are larger")
+
+EMPLOYEES = read_from_file()
+
+def other_projects(sorted_by_projects,
+                   employee_id_one, employee_id_two, longest_period):
+    temp_longest = 0
+    couples = {}
+
+    for key, values in sorted_by_projects.items():
+        print("k- {}".format(key))
+        first = False
+        second = False
+            
+        for items in values:
+            if items.employee_id == employee_id_one:
+                first = True
+                print(items)
+                first_employee = items
+            if items.employee_id == employee_id_two:
+                second = True
+                print(items)
+                second_employee = items
+        if(first == True and second == True):
+            couples[key] = (first_employee,second_employee)
+            range_in_days = date_range_overlap(
+                couples[key][0].start_date,
+                couples[key][0].end_date,
+                couples[key][1].start_date,
+                couples[key][1].end_date)
+            print("{}sss".format(range_in_days))
+            
+            if range_in_days > 0:
+                temp_longest += range_in_days
+    if(temp_longest > longest_period):
+        print("{}www".format(temp_longest))
+        return c
+t = (other_projects(EMPLOYEES, 6, 9, 0))
+print(t)
+def find_longest_period(sorted_by_projects):
+    '''
+    This function takes dictionary as argument. The dictionary has
+    project_id as key and list of all employees which has worked in
+    that project as value of this dictionary.
+    The algorithm 
+    '''
+    #handle project:(x1,x2)
+    all_pairs = {}
+    longest_period = 0
+    longest_time_pair = tuple()
+    for values in sorted_by_projects.values():
+        for first_employee in values:
+            for second_employee in values[values.index(first_employee)+1:]:
+                range_in_days = date_range_overlap(
+                    first_employee.start_date,
+                    first_employee.end_date,
+                    second_employee.start_date,
+                    second_employee.end_date)
+                
+                if range_in_days > longest_period:
+                    longest_period = range_in_days
+                    longest_time_pair = (first_employee, second_employee, range_in_days)
+                    
+    return longest_time_pair
+
+LONGEST_TIME_PAIR = find_longest_period(EMPLOYEES)
+for items in LONGEST_TIME_PAIR:
+    print(items)
+
