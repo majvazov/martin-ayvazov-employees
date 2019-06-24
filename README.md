@@ -2,7 +2,7 @@
 Pair of employees that has worked together for the longest time period. It was developed in Emacs/Ubuntu 18.04, Python 3.6 , and was styled according to PEP8 and pylint3.
 
 Problems That I Solved:
-1. Finding the pair of employees that have longest time together
+1. Finding the pair of employees that have longest time together on different projects
 2. Simulating data algorithm
 3. If DateTo in the text file is "NULL" -> today's date.
 4. Detecting range overlap
