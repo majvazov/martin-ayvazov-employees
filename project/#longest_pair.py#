@@ -1,4 +1,0 @@
-from packages.functions import *
-
-p = find_all_ranges()
-print(find_longest_time_couple(p))
