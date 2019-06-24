@@ -4,8 +4,9 @@ Pair of employees that has worked together for the longest time period. It was d
 Problems That I Solved:
 1. Finding the pair of employees that have longest time together
 2. Simulating data algorithm
-3. Detecting range overlap
-4. Detecting multiple range overlap
+3. If DateTo in the text file is "NULL" -> today's date.
+4. Detecting range overlap
+5. Detecting multiple range overlap
 
 ## INPUT:
 
