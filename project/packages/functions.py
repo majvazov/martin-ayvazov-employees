@@ -41,7 +41,7 @@ def read_file(opened_text_file):
     list_to_dict = {}
     mask = ["emp_id", "proj_id", "start", "end"]
 
-
+    print("...", end = '')
     readed_lines = opened_text_file.readlines()
     emp_id_list = [x.split()[0] for x in readed_lines]
     proj_id_list = [x.split()[1] for x in readed_lines]
@@ -55,6 +55,7 @@ def read_file(opened_text_file):
                 if list_from_row[each_column][j] == "NULL":
                     list_from_row[each_column][j] = datetime.date.today().strftime('%Y-%m-%d')
         list_to_dict[mask[each_column]] = list_from_row[each_column]
+
     return list_to_dict
 
 def find_all_ranges(opened_text_file):
@@ -67,7 +68,7 @@ def find_all_ranges(opened_text_file):
         columns=["emp_id", "proj_id", "start", "end"])
     all_ranges = pandas.DataFrame(columns=['proj_id', 'emp1', 'emp2', 'worktime'])
     projects = raw_dataframe.proj_id.unique()
-
+    print("....", end = '')
     for project in projects:
         worked_on_project = raw_dataframe.loc[raw_dataframe['proj_id'] == project]
         for index in list(combinations(worked_on_project.index, 2)):
@@ -81,6 +82,7 @@ def find_all_ranges(opened_text_file):
                                                 'emp1' : combinated.iloc[0]['emp_id'],
                                                 'emp2' : combinated.iloc[1]['emp_id'],
                                                 'worktime' : rangee}, ignore_index=True)
+
     return all_ranges
 
 def find_longest_time_couple(all_ranges):
@@ -94,7 +96,7 @@ def find_longest_time_couple(all_ranges):
                  longest_time.emp2.values[0],
                  longest_time.worktime.values[0])
 
-
+    print("....", end='')
     for i, row in all_ranges.iterrows():
         del i
         max_range_of_all_projects = all_ranges.loc[
@@ -108,4 +110,5 @@ def find_longest_time_couple(all_ranges):
                          max_range_of_all_projects.emp1.values[0],
                          max_range_of_all_projects.emp2.values[0],
                          max_range_of_all_projects.worktime.sum())
+    print("DONE")
     return max_range

@@ -9,6 +9,7 @@ from packages.functions import find_all_ranges, find_longest_time_couple
 if  __name__ == "__main__":
 
     try:
+        print('LOADING', end='')
         RANGES = find_all_ranges(open(os.path.join(sys.path[0], "test.txt"), "r"))
         LONGEST_TIME_PAIR = find_longest_time_couple(RANGES)
 
