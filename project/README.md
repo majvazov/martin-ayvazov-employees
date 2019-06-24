@@ -10,3 +10,7 @@ Problems That I Solved:
 ## INPUT:
 
 ![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/input.png)
+
+## OUTPUT:
+
+![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/output.png)
