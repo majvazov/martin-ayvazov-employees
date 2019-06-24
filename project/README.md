@@ -14,3 +14,8 @@ Problems That I Solved:
 ## OUTPUT:
 
 ![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/output.png)
+
+### PYLINT3 Score:
+
+![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/functions.png)
+![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/longest_time.png)
