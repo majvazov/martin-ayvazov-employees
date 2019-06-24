@@ -9,6 +9,8 @@ Problems That I Solved:
 5. Detecting multiple range overlap
 
 ## INPUT:
+Given is a text file in the format: 
+EmpID, ProjectID, DateFrom, DateTo 
 
 ![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/input.png)
 
