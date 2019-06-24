@@ -10,7 +10,7 @@ Problems That I Solved:
 ## Getting started:
 check the requirements!
 note that pandas package was used and may need to be installed
-pip3/pip install pandas
+- pip3/pip install pandas
 
 cmd/terminal commands:
 - git clone https://github.com/majvazov/martin-ayvazov-employees
