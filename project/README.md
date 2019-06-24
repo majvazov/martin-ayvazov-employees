@@ -10,3 +10,4 @@ Problems That I Solved:
 ## INPUT:
 
 ![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/input.png)
+Text file as input
