@@ -9,7 +9,7 @@ Problems That I Solved:
 5. Detecting multiple range overlap
 ## Getting started:
 check the requirements!
-note that pandas package was used and may need to be installed
+Note that pandas package was used and may need to be installed
 - pip3/pip install pandas
 
 cmd/terminal commands:
