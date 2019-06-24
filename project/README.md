@@ -7,18 +7,27 @@ Problems That I Solved:
 3. If DateTo in the text file is "NULL" -> today's date.
 4. Detecting range overlap
 5. Detecting multiple range overlap
+## Getting started:
+check the requirements!
+note that pandas package was used and may need to be installed
+pip3/pip install pandas
 
-## INPUT:
+cmd/terminal commands:
+>git clone https://github.com/majvazov/martin-ayvazov-employees
+>cd martin-ayvazov-employees/project
+>python3/python longest_pair.py 
+
+## Input:
 Given is a text file in the format: 
 EmpID, ProjectID, DateFrom, DateTo 
 
 ![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/input.png)
 
-## OUTPUT:
+## Output:
 
 ![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/output.png)
 
-### PYLINT3 Score:
+### Pylint3 Score:
 
 ![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/functions.png)
 ![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/longest_time.png)
