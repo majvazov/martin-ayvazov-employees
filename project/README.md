@@ -6,3 +6,6 @@ Problems That I Solved:
 2. Simulating data algorithm
 3. Detecting range overlap
 4. Detecting multiple range overlap
+
+##INPUT:
+![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/input.png)
