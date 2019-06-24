@@ -1,5 +1,4 @@
 """
-Created on Thur June 20 03:53 2019
 @author: martin_ayvazov
 """
 
@@ -35,7 +34,7 @@ def holiday_check(random_date):
 
 def simulate_data():
     """
-    Algorithm for creating and simulariong data for input
+    Algorithm for creating and simulating data for input
     """
     d1 = datetime.date(2012,1,1)
     d2 = datetime.date.today()
