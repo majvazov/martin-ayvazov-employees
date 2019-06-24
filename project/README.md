@@ -13,9 +13,9 @@ note that pandas package was used and may need to be installed
 pip3/pip install pandas
 
 cmd/terminal commands:
->git clone https://github.com/majvazov/martin-ayvazov-employees
->cd martin-ayvazov-employees/project
->python3/python longest_pair.py 
+- git clone https://github.com/majvazov/martin-ayvazov-employees
+- cd martin-ayvazov-employees/project
+- python3/python longest_pair.py 
 
 ## Input:
 Given is a text file in the format: 
