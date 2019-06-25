@@ -17,22 +17,34 @@ def date_range_overlap(first_start,
     time_spend = namedtuple('Range', ['start', 'end'])
 
     #convert dates given as parameters from string to datetime
-    first_start = datetime.datetime.strptime(first_start, '%Y-%m-%d').date()
-    first_end = datetime.datetime.strptime(first_end, '%Y-%m-%d').date()
-    second_start = datetime.datetime.strptime(second_start, '%Y-%m-%d').date()
-    second_end = datetime.datetime.strptime(second_end, '%Y-%m-%d').date()
+    try:
 
-    #store ranges in the namedtuple time_spend
-    first_range = time_spend(first_start, first_end)
-    second_range = time_spend(second_start, second_end)
+        first_start = datetime.datetime.strptime(first_start, '%Y-%m-%d').date()
+        first_end = datetime.datetime.strptime(first_end, '%Y-%m-%d').date()
+        second_start = datetime.datetime.strptime(second_start, '%Y-%m-%d').date()
+        second_end = datetime.datetime.strptime(second_end, '%Y-%m-%d').date()
 
-    latest_start = (max(first_range.start, second_range.start))
-    earliest_end = (min(first_range.end, second_range.end))
+        #store ranges in the namedtuple time_spend
+        first_range = time_spend(first_start, first_end)
+        second_range = time_spend(second_start, second_end)
 
-    delta = (earliest_end - latest_start).days + 1
+        latest_start = (max(first_range.start, second_range.start))
+        earliest_end = (min(first_range.end, second_range.end))
 
-    #overlaped days
-    return max(0, delta)
+        delta = (earliest_end - latest_start).days + 1
+
+        #overlaped days
+        return max(0, delta)
+
+    except ValueError:
+        return 'Wrong date format!'
+
+    except TypeError:
+        return 'Wrong date format!'
+
+
+
+
 
 def read_file(opened_text_file):
     '''
