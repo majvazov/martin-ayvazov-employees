@@ -27,7 +27,7 @@ EmpID, ProjectID, DateFrom, DateTo
 
 ![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/output.png)
 
-### Pylint3 Score:
+## Pylint3 Score:
 
 ![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/functions.png)
 ![alt text](https://raw.githubusercontent.com/majvazov/martin-ayvazov-employees/master/project/Images/longest_time.png)
